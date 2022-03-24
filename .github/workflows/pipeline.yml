@@ -28,3 +28,11 @@ jobs:
           command: npm run test:e2e
           start: npm run serve, npm run server
           wait-on: http://localhost:3000
+      - name: deploy heroku
+        if: ${{ github.event_name == 'push' && !contains(github.event.head_commit.message, '#skip') }}
+        uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "fs-cicd-fun" #Must be unique in Heroku
+          heroku_email: "juho.linden@gmail.com"
+          healthcheck: "https://fs-cicd-fun.herokuapp.com/health"
