@@ -1,3 +1,3 @@
 ## anecdotes
 
-Adding CI/CD to an legacy app.
+Adding CI/CD to an legacy app. Good exercise.
