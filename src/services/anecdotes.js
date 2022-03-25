@@ -1,6 +1,8 @@
 import axios from 'axios'
+// eslint-disable-next-line no-undef
+const port = process.env.PORT || 3001
 
-const url = 'http://localhost:3001/anecdotes'
+const url = `http://localhost:${port}/anecdotes`
 
 const getAll = async () => {
   const response = await axios.get(url)
